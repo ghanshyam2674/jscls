@@ -1,0 +1,10 @@
+{
+  "card": [
+    {
+      "id": 0,
+      "card_title": "Enter Text here...",
+      "card_dis": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt reprehenderit praesentium officiis dolorum eaque",
+      "card_img": "./images/pexels-pixabay.jpg"
+    }
+  ]
+}
