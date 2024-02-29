@@ -1,22 +1,33 @@
 let demo = document.getElementById("demo");
 
-let card = `
-            <div class="cards">`
+
+const hello = async () => {
+    let URL = `http://localhost:3000/card`
+    let myObj = await fetch(URL);
+    let myData = await myObj.json();
+    console.log(myData);
 
 
-for (let i = 0; i < 10; i++) {
-    card += `
-            <div class="card">
-                <img src="./images/pexels-pixabay.jpg" alt="">
-                <h1>hello</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, eaque.</p>
-            </div>
-            </div>`
+    let card = `
+                <div class="cards">`
+
+
+    myData.map((e, i) => {
+        card += `
+            <a herf="http://127.0.0.1:5500/html/view.html">
+            <div class="card" key=${i}>
+                <img src="${e.card_img}" alt="">
+                <h1>${e.card_title}</h1>
+                <p>${e.card_dis}</p>
+            </div>  
+            </a> 
+            `
+    })
+
+    card += `</div>`
+
+
+    demo.innerHTML = card
 }
 
-demo.innerHTML = card
-
-
-fetch('https://jsonplaceholder.typicode.com/todos')
-    .then(res => res.json())
-    .then(data => console.log(data))
+hello()
